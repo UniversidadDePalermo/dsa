@@ -7,7 +7,7 @@
 
 int main() {
     int ventas[9];
-    int año, max_año, total_ventas, max_ventas, i;
+    int año = 0, max_año = 0, total_ventas = 0, max_ventas = 0, i;
     
     for(i = 0; i < 9; i++) {
         printf("Ingrese el año donde desea ingresar el numero de ventas: ");
