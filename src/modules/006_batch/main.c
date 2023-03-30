@@ -12,9 +12,9 @@ int main() {
   printf("Ingresar numeros hasta que uno sea negativo. Ese sera el tamaño del lote: ");
   scanf("%d", &size);
 
-  int lote[size];
-
   while (size>0){
+
+    int lote[size]; 
 
     for (i=0; i<size; i++){
       printf("Ingrese un numero dentro del lote: ");
