@@ -20,7 +20,7 @@
 
 #include <stdio.h>
 
-#define FLOAT_ARR_LEN 3
+#define FLOAT_ARR_LEN 15
 
 int main() {
   // Declarar un arreglo de quince posiciones de tipo float.
