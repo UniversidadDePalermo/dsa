@@ -1,111 +1,101 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Lista {
-  int num;
-  struct Lista * sig;
-} Nodo;
+typedef struct LinkedList {
+  int val;
+  struct LinkedList *next;
+} Node;
 
-void crear(Nodo* pt);
-void mostrar(Nodo* pt);
-Nodo * insertar(Nodo*);
-Nodo * eliminar(Nodo*);
-void insertar_while(Nodo*);
-void eliminar_while(Nodo*);
+void crear(Node* pt);
+void mostrar(Node* pt);
+Node* insertar1(Node*);
+Node* eliminar1(Node*);
+void insertar2(Node*);
+void eliminar2(Node*);
 
 int main() {
-  Nodo * prin = NULL;
-  prin = (Nodo*) malloc(sizeof(Nodo));
 
+  Node* prin = NULL;
+  prin = (Node* )malloc(sizeof(Node));
   crear(prin);
   mostrar(prin);
-
   prin = insertar1(prin);
-
   insertar2(prin);
-
   prin = eliminar1(prin);
-
   eliminar2(prin);
   mostrar(prin);
 
   return 0;
 }
 
-void crear(Nodo * registro) {
-  scanf("%d", & registro -> num);
+void crear(Node* reg) {
 
-  if (registro -> num == 0)
-    registro -> sig = NULL;
+  scanf("%d", &reg->val);
+
+  if (reg->val == 0)
+    reg->next = NULL;
   else {
-    registro -> sig = (Nodo*) malloc(sizeof(Nodo));
-    crear(registro -> sig);
+    reg->next = (Node* )malloc(sizeof(Node));
+    crear(reg->next);
   }
-
   return;
 }
 
-void mostrar(Nodo * registro) {
-  if (registro -> sig != NULL) {
-    printf("%d\n", registro -> num);
-    mostrar(registro -> sig);
+void mostrar(Node* reg) {
+  if (reg->next != NULL) {
+    printf("%d\n", reg->val);
+    mostrar(reg->next);
   }
-
   return;
 }
 
-Nodo* insertar(Nodo* ptr) {
-  Nodo* aux;
-
-  if (/* Condicion de Inserción */) {
-    aux = (Nodo*) malloc(sizeof(Nodo));
-    aux -> num = 0; //valor a insertar
-    aux -> sig = p;
+Node* insertar1(Node* p) {
+  Node* aux;
+  if () // condicion de insercion
+  {
+    aux = (Node* )malloc(sizeof(Node));
+    aux->val = 0; // valor a insertar
+    aux->next = p;
     p = aux;
   }
-
   return p;
 }
 
-void insertar_while(Nodo* ptr) {
-  Nodo * aux;
-
-  while (p -> sig != NULL) {
-    if (/* Condicion de Inserción */) {
-      aux = (Nodo * ) malloc(sizeof(Nodo));
-      aux -> num = 0; //valor a insertar
-      aux -> sig = p -> sig;
-      p -> sig = aux;
-
-    }
-
-    p = p -> sig;
-  }
-}
-
-void eliminar(Nodo* ptr) {
-  Nodo* aux;
-
-  while (p -> sig != NULL && p -> sig -> sig != NULL) {
-    if (/* Condicion de Eliminacion */)
+void insertar2(Node* p) {
+  Node* aux;
+  while (p->next != NULL) {
+    if () // condicion de insercion
     {
-      aux = p -> sig -> sig;
-      free(p -> sig);
-      p -> sig = aux;
-    } else {
-      p = p -> sig;
+      aux = (Node* )malloc(sizeof(Node));
+      aux->val = 0; // valor a insertar
+      aux->next = p->next;
+      p->next = aux;
     }
+    p = p->next;
   }
 }
 
-Nodo* eliminar_while(Nodo * p) {
-  Nodo* aux;
-
-  while (/* Condicion de Eliminacion */) {
-    aux = p -> sig;
+Node* eliminar1(Node* p) {
+  Node* aux;
+  while () // condicion de eliminacion
+  {
+    aux = p->next;
     free(p);
     p = aux;
   }
-
   return p;
+}
+void eliminar2(Node* p) {
+  Node* aux;
+
+  while (p->next != NULL && p->next->next != NULL) {
+    if () // condicion de eliminacion
+    {
+      aux = p->next->next;
+      free(p->next);
+      p->next = aux;
+    } else {
+      p = p->next;
+    }
+  }
 }
