@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
@@ -25,7 +26,7 @@ Node* crear_nodo(int dato) {
 void apilar(Node** p, Node* u) {
   printf("apilar_nodo\n");
   u -> siguiente = * p;
-  printf("%02d p=%X u=%X\n", u -> dato, * p, u);
+  printf("%02d p=%X u=%X\n", u -> dato, *p, u);
   *p = u;
 }
 
@@ -34,8 +35,8 @@ Node desapilar(Node** p) {
   Node datos;
 
   datos = ** p;
-  aux = * p;
-  * p = ( * p) -> siguiente;
+  aux = *p;
+  *p = (*p) -> siguiente;
   free(aux);
 
   return datos;
@@ -43,21 +44,19 @@ Node desapilar(Node** p) {
 
 int main() {
   int i, num;
-
-  nodo * p = NULL;
+  Node * p = NULL;
 
   for (i = 0; i < CANT; i++) {
     printf("Ingrese un numero \n");
     scanf("%d", & num);
-    apilar( & p, crear_nodo(num));
+    apilar(&p, crear_nodo(num));
   }
 
   printf("\nVamos a desapilar todo\n");
 
   while (p != NULL) {
-    mostrar(desapilar( & p));
+    mostrar(desapilar(&p));
   }
 
-  getch();
   return 0;
 }
